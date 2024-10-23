@@ -1,0 +1,62 @@
+{% extends layout_path %}
+
+{% load i18n %}
+
+{% block title %}Page 1 - Starter Kit{% endblock title %}
+
+{% block content %}
+
+<!-- Import Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .numberedList {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    padding-left: 2.5rem;
+    position: relative;
+  }
+
+  .numberedList::before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 500;
+    background-color: #3498db;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+</style>
+
+<div class="py-5 mb-4 text-left">
+  <h1>Take the next step</h1>
+  <h1>to leave less behind</h1>
+  <p>A platform to share the devastating effects of carbon emissions.</p>
+
+{% endblock %}

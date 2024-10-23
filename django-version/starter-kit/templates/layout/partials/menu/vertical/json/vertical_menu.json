@@ -1,0 +1,28 @@
+{
+  "menu": [
+    {
+      "url": "index",
+      "icon": "menu-icon tf-icons ri-home-smile-line",
+      "name": "Home",
+      "slug": "index"
+    },
+    {
+      "url": "charts",
+      "icon": "menu-icon tf-icons ri-file-3-line",
+      "name": "Charts",
+      "slug": "charts"
+    },
+    {
+      "url": "maps",
+      "icon": "menu-icon tf-icons ri-file-3-line",
+      "name": "Maps",
+      "slug": "maps"
+    },
+    {
+      "url": "students",
+      "icon": "menu-icon tf-icons ri-file-3-line",
+      "name": "Students",
+      "slug": "students"
+    }
+  ]
+}

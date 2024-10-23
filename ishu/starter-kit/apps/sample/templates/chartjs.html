@@ -1,0 +1,134 @@
+{% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}Chart.js - Charts{% endblock %}
+
+{% block vendor_js %}
+{{ block.super }}
+<script src="{% static 'vendor/libs/chartjs/chartjs.js'%}"></script>
+{% endblock vendor_js %}
+
+{% block page_js %}
+  {{ block.super }}
+  <script>
+    const myData = {
+      labels: [
+          'CO2 (fossil fuel and industrial processes)',
+          'CO2 (forestry and other land use)',
+          'Methane',
+          'Nitrous Oxide',
+          'F-gases'
+        ],
+      datasets: [{
+          label: 'Global Greenhouse Emmissions',
+          data: [65, 11, 16, 6, 2],
+          backgroundColor: [
+            '#4d85bd',
+            '#a2bd3a',
+            '#7d4b94',
+            '#a49d5f',
+            '#d97641'
+          ],
+          hoverOffset: 4
+      }]
+    };
+
+    const myLineData = {
+      labels: [
+          'Januaray',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June'
+      ],
+      datasets: [{
+          label: 'Carbon Footprint',
+          data: [5, 6, 7, 8, 9, 7],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Fill area with transparency
+          borderColor: 'rgba(75, 192, 192, 1)', // Line color
+          borderWidth: 2,
+          fill: true, // Fill area below the line
+          tension: 0.4 // Makes the line curved
+      }]
+    }
+
+  new Chart(
+    document.getElementById('pie1'),
+    {
+        type: 'doughnut',
+        data: myData,
+        options: {
+          plugins: {
+              legend: {
+                  display: false
+              },
+              title: {
+                  display: true,
+                  text: 'Global Greenhouse Emissions By Gas',
+                  padding: {
+                      top: 10,
+                      bottom: 30
+                  },
+                  font: {
+                      size: 18
+                  }
+              }
+          },
+          responsive: true,
+          maintainAspectRatio: false
+      }
+    }
+  );
+  new Chart(
+    document.getElementById('carbonFootprintChart').getContext('2d'),
+    {
+        type: 'line',
+        data: myLineData,
+        options: {
+          plugins: {
+              legend: {
+                  display: false
+              },
+              title: {
+                  display: true,
+                  text: '2024 Monthly Carbon Footprint (in tons of CO2)',
+                  padding: {
+                      top: 10,
+                      bottom: 30
+                  },
+                  font: {
+                      size: 18
+                  }
+              }
+          },
+          responsive: true,
+          maintainAspectRatio: false
+      }
+    }
+);
+  </script>
+
+{% endblock page_js %}
+
+{% block content %}
+  <div class="row">
+    <div class="row">
+      <div class="col s12">
+        <div style="height: 300px">
+          <canvas id="carbonFootprintChart">
+          </canvas>
+        </div>
+      </div>
+
+      <div class="col m6">
+        <div style="height: 400px">
+          <canvas id="pie1">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

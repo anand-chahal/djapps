@@ -1,0 +1,23 @@
+{
+  "menu": [
+    {
+      "url": "index",
+      "icon": "menu-icon tf-icons ri-home-smile-line",
+      "name": "Home",
+      "slug": "index"
+    },
+    {
+      "url": "ishu",
+      "icon": "menu-icon tf-icons ri-file-3-line",
+      "name": "Ishaan Cherukuri",
+      "slug": "ishu"
+    },
+    {
+      "url": "adi",
+      "icon": "menu-icon tf-icons ri-file-3-line",
+      "name": "Adi Varshney",
+      "slug": "adi"
+    }
+
+  ]
+}
