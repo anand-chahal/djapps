@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SampleView, StudentsView
+from .views import SampleView, StudentsView, ChartData
 
 
 urlpatterns = [
@@ -10,8 +10,13 @@ urlpatterns = [
     ),
     path(
         "charts/",
-        SampleView.as_view(template_name="charts.html"),
+        SampleView.as_view(template_name="custom-chart.html"),
         name="charts",
+    ),
+    path(
+        "charts/data",
+        ChartData.as_view(),
+        name="charts-data",
     ),
     path(
         "maps/",

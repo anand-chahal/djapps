@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from web_project import TemplateLayout
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.views.generic import View
+from django.http import JsonResponse
 
 
 """
@@ -20,7 +20,6 @@ class SampleView(TemplateView):
         return context
 
 
-@method_decorator(login_required, name="dispatch")
 class StudentsView(TemplateView):
     # sending custom context to the html page
     def get_context_data(self, **kwargs):
@@ -31,3 +30,18 @@ class StudentsView(TemplateView):
         context["names"] = ["Ishaan", "Vihaan", "Rajveer", "Saurya"]
 
         return context
+
+
+class StudentsData(View):
+    def get(self, request, *args, **kwargs):
+        data = {"names": ["Ishaan", "Vihaan", "Rajveer", "Saurya"]}
+        return JsonResponse(data)
+
+
+class ChartData(View):
+    def get(self, request, *args, **kwargs):
+        data = {
+            "x": list("ABCDEFGHIJ"),
+            "y": [20, 90, 30, 30, 50, 60, 40, 10, 90, 70],
+        }
+        return JsonResponse(data)
